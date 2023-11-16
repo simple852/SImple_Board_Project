@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>REQUEST</title>
+</head>
+<body>
+    <form action="response.jsp" method="get">
+        DATA1 : <input type="text" name ="data1"><br>
+        <button>보내기</button>
+    </form>
+<!--
+    경로 : gugu.jsp
+    파라미터명 : number
+    number를 전달하여 1~20까지의 구구단을 출력하라
+-->
+<a href="gugu.jsp?number=4">출력</a>
+
+</body>
+</html>
+
+<script>
+  let data =   prompt("숫자를 입력해주세요");
+  window.location = "gugu.jsp?number="+data;
+</script>
