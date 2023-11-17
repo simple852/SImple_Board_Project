@@ -136,8 +136,11 @@ h6 span{
     display: block;
 }
 
-.board{
+table{
     width: 100%;
+    border: white 1px solid;
+}
+table ,th,tr{
     border: white 1px solid;
 }
 .title{

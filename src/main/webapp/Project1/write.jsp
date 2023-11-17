@@ -4,9 +4,9 @@
 <%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<%
-String id = (String) session.getAttribute("id");
-%>
+<c:set value="${sessionScope.get('sessionId')}" var="id" />
+${sessionScope.get("sessionId")}
+${sessionScope.get("sessionIndex")}
 
 
 
@@ -35,7 +35,7 @@ String id = (String) session.getAttribute("id");
                                 <form action="process/board_process.jsp" method="get">
                                     <input type="text" name ="title" class="title"><br>
                                     <textarea class="content" name="content"></textarea><br>
-                                    <input type="hidden" name = "id" value = <%= id%>>
+                                    <input type="hidden" name = "id" value = ${id} >
                                     <button type="submit">글쓰기</button>
                                 </form>
                             </div>

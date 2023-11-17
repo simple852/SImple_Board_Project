@@ -4,10 +4,8 @@
 <%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="boardId" value="${param.item}"/>
-<%
-    String id = (String) session.getAttribute("id");
-%>
-
+${sessionScope.get("sessionId")}
+${sessionScope.get("sessionIndex")}
 
 <sql:query var="boardItem" dataSource="jdbc/web">
     SELECT a.id,a.title,a.content,a.created_date, a.count,b.member_id FROM board_tbl as a join member_tbl as b on (a.member_id = b.id )

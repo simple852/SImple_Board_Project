@@ -4,10 +4,11 @@
 <%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<%=
-session.getAttribute("id")
-%>
-
+<%--<%=--%>
+<%--session.getAttribute("id")--%>
+<%--%>--%>
+${sessionScope.get("sessionId")}
+${sessionScope.get("sessionIndex")}
 <sql:query var="board" dataSource="jdbc/web">
     SELECT a.id,a.title,a.created_date, a.count,b.member_id FROM board_tbl as a join member_tbl as b on (a.member_id = b.id ) order by a.created_date desc
 </sql:query>
@@ -21,6 +22,7 @@ session.getAttribute("id")
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.1.9/css/unicons.css">
 
     <link rel="stylesheet" href="css/board.css">
+    <script src="js/defualt.js"> </script>
 
 
 <body>
@@ -32,6 +34,7 @@ session.getAttribute("id")
             <div class="col-12 text-center align-self-center py-5">
                 <div class="section pb-5 pt-5 pt-sm-2 text-center">
                     <button type="button" onclick="location.href='write.jsp'">글쓰기</button>
+                    <button type="button" id="messageBtn">쪽지</button>
                     <div class="card-3d-wrap mx-auto">
                         <div class="card-3d-wrapper">
                             <div class="card-board">
@@ -72,3 +75,21 @@ session.getAttribute("id")
 </div>
 </body>
 </html>
+
+<script>
+
+    const messageBtn = document.getElementById('messageBtn');
+    var _width = 550;
+    var _height = 500;
+
+    var _left  =Math.ceil((window.screen.width-_width)/2);
+    var _top  =Math.ceil((window.screen.height-_height)/2);
+
+console.log(_top)
+    const status = "toolbar=no,resizeable=yes,status=no,menubar=no," +
+        "width="+_width+",height="+_height+",left="+_left+",top="+_top+""
+    messageBtn.onclick=(event)=>{
+        window.open("message/message.jsp","message",status)
+    }
+
+</script>
