@@ -27,12 +27,12 @@ public class MemberDAO {
 
     public boolean check_id(String id) {
         boolean result = false;
-        String search = "select * from member_tbl where member_id =" + "'" + id + "'" ;
+        String search = "select * from member_tbl where member_id =?";
 
         try{
-
-            st = con.createStatement();
-            rs = st.executeQuery(search);  // 중복 확인을 위한 서치 쿼리문
+            ps = con.prepareStatement(search);
+            ps.setString(1, id);
+            rs = ps.executeQuery();  // 중복 확인을 위한 서치 쿼리문
             if (!rs.next()) {
                 System.out.println("있음");
                 //사용가능한 아이디

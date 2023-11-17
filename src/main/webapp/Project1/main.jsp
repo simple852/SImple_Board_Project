@@ -7,6 +7,9 @@
 <c:set var="sessionId" value="${sessionScope.get('sessionId')}"/>
 <c:set var="sessionIndex" value="${sessionScope.get('sessionIndex')}"/>
 
+<%=
+    request.getParameter("test")
+%>
 
 <c:if test="${sessionId == null}">
     <c:redirect url="login.jsp"/>
@@ -26,7 +29,7 @@
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.1.9/css/unicons.css">
 
     <link rel="stylesheet" href="css/board.css">
-    <script src="js/defualt.js"> </script>
+    <script src="js/defualt.js" defer> </script>
 
 
 <body>
@@ -67,7 +70,7 @@
                                     </tbody>
 
                                 </table>
-
+<button onclick="ajax_text()"></button>
 
 
                             </div>
@@ -98,3 +101,5 @@ console.log(_top)
     }
 
 </script>
+<script src="https://code.jquery.com/jquery-3.4.1.js" defer></script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>

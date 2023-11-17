@@ -15,7 +15,6 @@
 
 
 <sql:query var="message" dataSource="jdbc/web" >
-
     SELECT a.id as id, a.title as title, concat(b.member_id,'') as `from`,concat(c.member_id,'') as `to`,a.`read` as `read`, a.send_date as send_date from message_tbl as a
     left join member_tbl as b on(a.`from` = b.id )
     join member_tbl as c  on(a.`to` = c.id )  where `from` = '${sessionIndex}' or `to` = '${sessionIndex}' order by a.id desc ;

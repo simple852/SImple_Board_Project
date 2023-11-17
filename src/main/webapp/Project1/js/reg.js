@@ -54,8 +54,8 @@ function post2(frm){
     frm.submit();
     return true;
 }
-join_submit.onclick = (event) => {
-    event.preventDefault();
+function jaego(){
+    join_submit.preventDefault();
     if (idReg.test(joinId.value) && pwReg.test(joinPw.value) && nameReg.test(joinName.value)) {
         const form = document.forms.item(1)
         form.action ="/join";

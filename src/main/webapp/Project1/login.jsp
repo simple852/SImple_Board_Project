@@ -15,7 +15,7 @@ ${ success}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.1.9/css/unicons.css">
     <link rel="stylesheet" href="css/style.css">
-    <script src="js/reg.js" defer></script>
+    <script src="js/reg.js"  defer></script>
     <%--    <script src="js/defualt.js" defer></script>--%>
 
 
@@ -70,8 +70,9 @@ ${ success}
                                             </div>
                                             <div class="form-group mt-2">
                                                 <input type="text" name="joinId" class="form-style" placeholder="Your ID" id="logid" autocomplete="off">
+                                                <label  id ="blankText2" style="display: none"></label><br>
                                                 <i class="input-icon uil uil-at" id="id_icon"></i>
-                                                <input type="button" value="중복확인" id="checkId" onclick="check_id()">
+                                                <input type="button" class="btn mt-4" value="중복확인" id="checkId" onclick="check_id()">
                                             </div>
                                             <div class="form-group mt-2">
                                                 <input type="password" name="joinPw" class="form-style" placeholder="Your Password" id="logpass1" autocomplete="off">
@@ -109,6 +110,56 @@ ${ success}
     }
 
 
+</script>
+
+<script src="https://code.jquery.com/jquery-3.4.1.js" defer></script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+
+<script type="text/javascript">
+    let checkID = document.getElementById('logid');
+    let checkNAME = document.getElementById('logname');
+    let checkPW = document.getElementById('logpass1');
+    let btn = document.getElementById('join_submit');
+    let blankLabel = document.getElementById('blankText2');
+    const id_icon = document.querySelector("#id_icon").style.color;
+    const name_icon = document.querySelector("#name_icon").style.color;
+    const pw_icon = document.querySelector("#pw_icon").style.color;
+    checkID.onchange =()=> {
+        $.ajax({
+            type:"POST",
+            url:"/test",
+            data: {
+                id: checkID.value,
+                name: checkNAME.value,
+                pw: checkPW.value,
+            },
+
+            success:function(data){
+              if(!data.check2){
+                  blankLabel.style.display = "inline"
+                  blankLabel.innerText = "중복된 아이디입니다"
+
+                  btn.disable=true;
+              }
+              else if(!data.check){
+                  blankLabel.style.display = "inline"
+                  blankLabel.innerText = "올바르지 않은 아이디입니다"
+
+                  btn.disable=true;
+              }
+
+              else if(id_icon !== "red" && name_icon !== "red" && pw_icon !== "red" ){
+                  blankLabel.style.display = "inline"
+                  blankLabel.innerText = "올바른 아이디입니다"
+                  btn.disable=false;
+              }
+            },
+            error:function(request,status,error){
+
+                console.log("error");
+            }
+        });
+    }
 
 
 </script>

@@ -1,0 +1,217 @@
+Hunger.jsp*{
+    margin: 0;
+    padding: 0;
+}
+
+
+main{
+    width: 1100px;
+    height: 1900px;
+    margin: 0 auto;
+}
+
+.main-image{
+    background-image: url('https://search.pstatic.net/common?quality=75&direct=true&src=https%3A%2F%2Fmovie-phinf.pstatic.net%2F20231024_86%2F1698109353235tgvLK_JPEG%2Fmovie_image.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 400px;
+    margin-bottom: 25px;
+}
+
+
+
+@font-face {
+    font-family: 'Gowun Dodum', sans-serif;
+}
+
+.container{
+    width: 100%;
+    display: flex;
+    color: #FFFFFF;
+    font-family: 'Gowun Dodum', sans-serif;
+}
+
+.container-small{
+    width: 90%;
+}
+header{
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    width: 100%;
+    background-color: #2c2c2c;
+    color: #FFFFFF;
+    display: flex;
+    height: 6%;
+}
+.headA{
+    display: inline-block;
+    line-height: 70px;
+    padding: 0 20px;
+    font-weight: bold;
+    font-size: 30px;
+    font-style: italic;
+    text-decoration: none;
+}
+
+.headB{
+    padding: 0 20px;
+    background: none;
+    border: none;
+    font-size: 25px;
+    cursor: pointer;
+}
+.headB:hover{
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.headC{
+    display: flex;
+    width: 30%;
+}
+.headC ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    width: 130%
+}
+
+.headC li{
+    width: 50%;
+}
+.headC a{
+    display: block;
+    padding: 15px 10px;
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+}
+.headC li:hover{
+    background-color: rgba(0,0,0,0.3);
+    height: 80%;
+}
+
+
+header a:visited{
+    color: #FFFFFF;
+}
+
+header a{
+    color: #FFFFFF;
+}
+
+
+
+.left{
+    display: grid;
+    height:  655px;
+    grid-template-columns: 500px 1fr;
+    grid-template-rows: 2fr 2fr;
+}
+
+.left-img{
+    width: 600px;
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+
+.left-content{
+    font-family: 'Gowun Dodum', sans-serif;
+    grid-column-start: 2;
+    grid-row-start: 1;
+    margin-bottom: 5px;
+    font-size: large;
+    margin-left: 150px;
+}
+
+h3{
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+p{
+    font-weight: bolder;
+    font-size: 40px;
+}
+
+.left-user-info{
+    grid-column-start: 2;
+    grid-row-start: 2;
+
+}
+
+#title{
+    font-weight: bold;
+}
+
+.bottom{
+
+    text-align: center;
+    width: 1200px;
+    height: 315px;
+    margin-left: 2.5%;
+}
+
+.left-user-info div{
+    font-weight: bold;
+    font-family: 'Gowun Dodum', sans-serif;
+    display: flex;
+    justify-content: space-between;
+    width: 300px;
+    margin-top: 5px;
+    margin-left: 150px;
+}
+
+#firstH3{
+    margin-top: 5px;
+}
+
+.left-user-info div span{
+    flex: 1;
+    display: inline-block;
+    text-align: justify;
+    text-align-last: justify;
+}
+.left-user-info input{
+    margin-left: 20px;
+}
+
+.bottom{
+    margin-top: 200px;
+    width: 1100px;
+}
+iframe{
+    width: 1100px;
+    height: 600px;
+}
+
+textarea{
+    width: 550px;
+    height: 130px;
+    resize: none;
+    margin-top: 10px;
+    margin-left: 15%;
+}
+
+button{
+    margin-top: 5px;
+    margin-left: 15%;
+    font-family: 'Gowun Dodum', sans-serif;
+    color: white;
+    width: 550px;
+    height: 25px;
+    background-color: #ab0000;
+    border: none;
+    font-weight: bold;
+    /*display: inline-block;*/
+    /*position: absolute;*/
+    /*right: 350px;*/
+
+}

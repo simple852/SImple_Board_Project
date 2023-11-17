@@ -19,25 +19,26 @@ public class MemberJoin extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        MemberDAO memberDAO = new MemberDAO();
-        String id = req.getParameter("logid");
-        String search = "select * from member_tbl where member_id =" + "'" + id + "'" ;
-
-
-        try{
-            st = memberDAO.con.createStatement();
-            rs = st.executeQuery(search);  // 중복 확인을 위한 서치 쿼리문
-            if (rs == null) {
-                //사용 가능한 아이디
-
-            } else {
-                //중복으로 사용불가
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-
-        System.out.println(rs);
+//        MemberDAO memberDAO = new MemberDAO();
+//        String id = req.getParameter("logid");
+//        String search = "select * from member_tbl where member_id =?";
+//
+//
+//        try{
+//            ps = con.prepareStatement(search);
+//            ps.setString(1, id);
+//            rs = ps.executeQuery(search);  // 중복 확인을 위한 서치 쿼리문
+//            if (rs == null) {
+//                //사용 가능한 아이디
+//                                                              여긴 필요 없지 않나 ? 그쵸 형?
+//            } else {
+//                //중복으로 사용불가
+//            }
+//        } catch (SQLException e) {
+//            throw new RuntimeException(e);
+//        }
+//
+//        System.out.println(rs);
     }
 
     @Override
@@ -52,14 +53,15 @@ public class MemberJoin extends HttpServlet {
         String name = req.getParameter("joinName");
         System.out.println(id);
         String sql = "insert into member_tbl(member_id, member_pw, member_name) value(?, ?, ?)";
-        String search = "select * from member_tbl where member_id =" + "'" + id + "'" ;
+        String search = "select * from member_tbl where member_id =?";
 
 
 
         try {
-            st = memberDAO.con.createStatement();
 
-            rs = st.executeQuery(search); // 중복 확인을 위한 서치 쿼리문
+            ps = con.prepareStatement(search);
+            ps.setString(1, id);
+            rs = ps.executeQuery(); // 중복 확인을 위한 서치 쿼리문
 
 
             if (!rs.next()) { // 가져온 결과에 값이 없을 때 insert

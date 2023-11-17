@@ -1,0 +1,232 @@
+@font-face {
+    font-family: 'Gowun Dodum', sans-serif;
+}
+
+.container{
+    width: 100%;
+    display: flex;
+    color: #FFFFFF;
+    font-family: 'Gowun Dodum', sans-serif;
+}
+
+.container-small{
+    width: 90%;
+}
+header{
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    width: 100%;
+    background-color: #2c2c2c;
+    color: #FFFFFF;
+    display: flex;
+    height: 6%;
+}
+.headA{
+    display: inline-block;
+    line-height: 70px;
+    padding: 0 20px;
+    font-weight: bold;
+    font-size: 30px;
+    font-style: italic;
+    text-decoration: none;
+}
+
+.headB{
+    padding: 0 20px;
+    background: none;
+    border: none;
+    font-size: 25px;
+    cursor: pointer;
+}
+.headB:hover{
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.headC{
+    display: flex;
+    width: 30%;
+}
+.headC ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    width: 130%
+}
+
+.headC li{
+    width: 50%;
+}
+.headC a{
+    display: block;
+    padding: 15px 10px;
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+}
+.headC li:hover{
+    background-color: rgba(0,0,0,0.3);
+    height: 80%;
+}
+
+main{
+    margin: 0 auto;
+    width: 1500px;
+}
+section{
+    display: inline-block;
+    margin: 15px 20px;
+    width: 400px;
+}
+.background{
+    position: relative;
+    width: 100%;
+    height: 600px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 15px;
+    top: 0;
+
+}
+
+section > div{
+    font-size: 30px;
+    cursor: pointer;
+}
+.title-container{
+    position: relative;
+}
+.rating{
+    display: inline-block;
+    position: absolute;
+    right: 0;
+}
+
+.gray-text{
+    font-size: 25px;
+    color: rgba(0,0,0,0.5);
+}
+.title{
+    font-weight: bold;
+}
+
+.title-container{
+    margin: 5px 0;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+}
+
+.price-container{
+    font-size: x-large;
+    margin: 5px 0;
+}
+
+.movies:hover{
+    color: red;
+}
+#img1{
+     background-image: url("https://search.pstatic.net/sunny/?src=https%3A%2F%2Fi.pinimg.com%2F736x%2F6c%2F76%2F60%2F6c766077009bd823644147366e15a480.jpg&type=sc960_832");
+ }
+#img2{
+    background-image: url("https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzA5MjdfNTEg%2FMDAxNjk1NzgzNDI1NDcw.LycDkgnhKFj-0gxxE4fOgLLU7_DwvVa25DQ_tw81xZMg.iidAbaBBXm8RjexBKX9RYEnprigwkleaE3otazf-QFsg.JPEG.rissnam%2FMV5BOTZmMmY2MzctMjU2Yy00YjJlLTk1NjAtY2U4MmMxOWZkZWY4XkEyXkFqcGdeQXVyMjM4NTM5.jpg&type=a340");
+}
+#img3{
+    background-image: url("https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzEwMDZfMTg5%2FMDAxNjk2NTYxOTE2OTcy.lrK_PB2MVAVr8WsQQcfcQ5IJNhQh3v3XKJ5D6MWjpu0g.exPSH_vCa4UkpQPJ4qHvKIVUqokhCECZUKBE-YY2hxsg.JPEG.gs8334%2F%25BF%25B5%25C8%25AD_%25C5%25E5%25C5%25F5%25B9%25CC_%25C6%25F7%25BD%25BA%25C5%25CD.jpg&type=a340");
+}
+#img4{
+    background-image: url("https://search.pstatic.net/common/?src=http%3A%2F%2Fcafefiles.naver.net%2FMjAyMzExMDdfNDEg%2FMDAxNjk5MzM4NzM1MzUw.STk9AYyr02n6W1k7F4jsYuDXss08TFW9LciZ0egMBPEg.FiiBxgs4r4Ms-v0US3DHPCrRxwu6sup3nbkim7Eb-PAg.JPEG%2FexternalFile.jpg&type=a340");
+}
+#img5{
+    background-image: url("https://search.pstatic.net/common?type=o&size=176x264&quality=85&direct=true&src=https%3A%2F%2Fs.pstatic.net%2Fmovie.phinf%2F20231026_9%2F16983044100188P1Ff_JPEG%2Fmovie_image.jpg%3Ftype%3Dw640_2");
+}
+#img6{
+    background-image: url("https://i.namu.wiki/i/6o1eLaPMkjXi79At9s-CLcI8Scv_Ht_lUfxGnOFW4Fb7ezx3vI7dCDqdbiinWBWI9YBou7Uie6idlYeWOTTUkA.webp");
+}
+#img7{
+    background-image: url("https://search.pstatic.net/common?type=o&size=176x264&quality=85&direct=true&src=https%3A%2F%2Fs.pstatic.net%2Fmovie.phinf%2F20230309_3%2F1678329123596Kpcdb_JPEG%2Fmovie_image.jpg%3Ftype%3Dw640_2");
+}
+#img8{
+    background-image: url("https://search.pstatic.net/common?type=o&size=176x264&quality=85&direct=true&src=https%3A%2F%2Fs.pstatic.net%2Fmovie.phinf%2F20230809_114%2F1691559109714F3JPy_JPEG%2Fmovie_image.jpg%3Ftype%3Dw640_2");
+}
+#img9{
+    background-image: url("https://search.pstatic.net/common?type=o&size=176x264&quality=85&direct=true&src=https%3A%2F%2Fs.pstatic.net%2Fmovie.phinf%2F20230206_264%2F1675649061557DaJHD_JPEG%2Fmovie_image.jpg%3Ftype%3Dw640_2");
+}
+#img10{
+    background-image: url("https://search.pstatic.net/common?type=o&size=304x456&quality=100&direct=true&src=https%3A%2F%2Fs.pstatic.net%2Fmovie.phinf%2F20230726_155%2F1690353875207a86z3_JPEG%2Fmovie_image.jpg%3Ftype%3Dw640_2");
+}
+#img11{
+    background-image: url("https://search.pstatic.net/common?type=o&size=304x456&quality=100&direct=true&src=https%3A%2F%2Fs.pstatic.net%2Fmovie.phinf%2F20230816_203%2F1692186449098K0QIb_JPEG%2Fmovie_image.jpg%3Ftype%3Dw640_2");
+}
+#img12{
+    background-image: url("https://search.pstatic.net/common?type=o&size=304x456&quality=100&direct=true&src=https%3A%2F%2Fs.pstatic.net%2Fmovie.phinf%2F20230830_155%2F1693380545549R60c7_JPEG%2Fmovie_image.jpg%3Ftype%3Dw640_2");
+}
+#img13{
+    background-image: url("https://search.pstatic.net/common?type=o&size=304x456&quality=100&direct=true&src=https%3A%2F%2Fs.pstatic.net%2Fmovie.phinf%2F20230703_287%2F1688384956224fA9Jy_JPEG%2Fmovie_image.jpg%3Ftype%3Dw640_2");
+}
+#img14{
+    background-image: url("https://search.pstatic.net/common?type=o&size=304x456&quality=100&direct=true&src=https%3A%2F%2Fs.pstatic.net%2Fmovie.phinf%2F20230526_154%2F1685060493223yFUCL_JPEG%2Fmovie_image.jpg%3Ftype%3Dw640_2");
+}
+
+.end-container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        bottom: 0;
+        background-color: rgba(255,255,255,0.6);
+        padding: 0;
+        height: 100%;
+        width: 100%;
+        margin: 0;
+}
+
+.blank{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    /*font-weight: bold;*/
+    color: #FFFFFF;
+    background-color: rgba(40,40,40,0.8);
+    border-radius: 50%;
+    width: 290px;
+    height: 300px;
+}
+
+.ended{
+        position: relative;
+        margin-top: 100px;
+        min-height: 400px;
+        background-position: center;
+        background-size: cover;
+
+}
+
+.ended h2{
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 25px;
+}
+
+main a:visited{
+    color: black;
+}
+
+main{
+    font-family: 'Gowun Dodum', sans-serif;
+}
+
+header a:visited{
+    color: #FFFFFF;
+}
+
+header a{
+    color: #FFFFFF;
+}
