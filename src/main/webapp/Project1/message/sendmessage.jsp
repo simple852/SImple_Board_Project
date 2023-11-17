@@ -4,10 +4,13 @@
 <%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="receiveId" value="${param.receive}"/>
-<c:set value="${sessionScope.get('sessionId')}" var="id" />
-${sessionScope.get("sessionId")}
-${sessionScope.get("sessionIndex")}
 
+<c:set var="sessionId" value="${sessionScope.get('sessionId')}"/>
+<c:set var="sessionIndex" value="${sessionScope.get('sessionIndex')}"/>
+
+<c:if test="${sessionId == null}">
+    <c:redirect url="../login.jsp"/>
+</c:if>
 
 
 <!DOCTYPE html>
@@ -33,11 +36,12 @@ ${sessionScope.get("sessionIndex")}
                         <div class="card-3d-wrapper">
                             <div class="card-board">
                                 <form action="../process/send_process.jsp" method="get">
-                                    <input type="text" name ="title" class="title"><br>
-                                    <textarea class="content" name="content"></textarea><br>
+                                    <input type="text" name ="title" class="title" placeholder="제목"><br>
+                                    <textarea class="content" name="content" placeholder="내용"></textarea><br>
                                     <input type="hidden" name = "sendId" value = ${sessionScope.get("sessionIndex")} >
                                     <input type="hidden" name = "receiveId" value = ${receiveId} >
                                     <button type="submit">보내기</button>
+                                    <button type="button" onclick="location.href='message.jsp' ">뒤로가기</button>
                                 </form>
                             </div>
                         </div>

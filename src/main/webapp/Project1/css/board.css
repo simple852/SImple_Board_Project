@@ -171,3 +171,15 @@ table ,th,tr{
     background: dimgray;
     color : white;
 }
+.board-member-list{
+    width: 80%;
+}
+
+input::placeholder {
+    color: white;
+    font-style: italic;
+}
+textarea::placeholder {
+    color: white;
+    font-weight: bold;
+}

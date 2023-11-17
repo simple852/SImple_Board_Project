@@ -4,20 +4,25 @@
 <%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="messageId" value="${param.item}"/>
-${sessionScope.get("sessionId")}
-${sessionScope.get("sessionIndex")}
+<c:set var="sessionId" value="${sessionScope.get('sessionId')}"/>
+<c:set var="sessionIndex" value="${sessionScope.get('sessionIndex')}"/>
 
+<c:if test="${sessionId == null}">
+    <c:redirect url="../login.jsp"/>
+</c:if>
 <sql:query var="boardItem" dataSource="jdbc/web">
     SELECT a.id as id, a.title as title,a.content as content, a.from, concat(b.member_id,'') as `from`,a.`read` as `read`, a.send_date as send_date from message_tbl as a
-    left join member_tbl as b on(a.`from` = b.id ) where a.id = ${messageId}
+    left join member_tbl as b on(a.`from` = b.id ) where a.id = ${messageId} order by id desc
 </sql:query>
 
 <sql:query var="sendQuery" dataSource="jdbc/web">
-    SELECT `from`  from message_tbl where id = ${messageId}
+    SELECT `from`  from message_tbl where id = ${messageId} order by id desc
 </sql:query>
-SELECT  *  from message_tbl where id = ${messageId}
+
+
+
 <sql:update var="update" dataSource="jdbc/web">
-  update message_tbl set `read` = '읽음' where id = ${messageId}
+  update message_tbl set `read` = '읽음' where id = ${messageId} and `to` = ${sessionScope.get("sessionIndex")}
 
 </sql:update>
 
@@ -47,7 +52,10 @@ SELECT  *  from message_tbl where id = ${messageId}
                             <div class="card-board-item">
                                 <button type="button" onclick="location.href='message.jsp' ">뒤로가기</button>
                                 <c:forEach items="${sendQuery.rows}" var="send" >
-                                <button type="button" onclick="window.location='sendmessage.jsp?receive=${send.from}'">답장보내기</button>
+                                    <c:if test="${sessionScope.get('sessionIndex') != send.from  }">
+                                        <button type="button" onclick="window.location='sendmessage.jsp?receive=${send.from}'">답장보내기</button>
+                                    </c:if>
+
                                 </c:forEach>
                                 <c:forEach items="${boardItem.rows}" var="values" >
                                         <div class="title-item"> 제목 :${values.title}</div>

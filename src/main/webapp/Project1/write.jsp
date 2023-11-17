@@ -4,10 +4,13 @@
 <%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<c:set value="${sessionScope.get('sessionId')}" var="id" />
-${sessionScope.get("sessionId")}
-${sessionScope.get("sessionIndex")}
+<c:set var="sessionId" value="${sessionScope.get('sessionId')}"/>
+<c:set var="sessionIndex" value="${sessionScope.get('sessionIndex')}"/>
 
+
+<c:if test="${sessionId == null}">
+    <c:redirect url="login.jsp"/>
+</c:if>
 
 
 <!DOCTYPE html>
@@ -35,8 +38,9 @@ ${sessionScope.get("sessionIndex")}
                                 <form action="process/board_process.jsp" method="get">
                                     <input type="text" name ="title" class="title"><br>
                                     <textarea class="content" name="content"></textarea><br>
-                                    <input type="hidden" name = "id" value = ${id} >
+                                    <input type="hidden" name = "id" value = ${sessionId} >
                                     <button type="submit">글쓰기</button>
+                                    <button type="button" onclick="location.href='main.jsp' ">뒤로가기</button>
                                 </form>
                             </div>
                         </div>
