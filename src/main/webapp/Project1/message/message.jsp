@@ -10,11 +10,13 @@ ${sessionScope.get("sessionIndex")}
 <c:set var="sessionId" value="${sessionScope.get('sessionId')}"/>
 <c:set var="sessionIndex" value="${sessionScope.get('sessionIndex')}"/>
 
-<sql:query var="message" dataSource="jdbc/web">
+<sql:query var="message" dataSource="jdbc/web" >
 
-    SELECT * from message_tbl where `from` = '${sessionIndex}' or `to` = '${sessionIndex}';
+    SELECT a.id as id, a.title as title, concat(b.member_id,'') as `from`,concat(c.member_id,'') as `to`,a.`read` as `read`, a.send_date as send_date from message_tbl as a
+    left join member_tbl as b on(a.`from` = b.id )
+    join member_tbl as c  on(a.`to` = c.id )  where `from` = '${sessionIndex}' or `to` = '${sessionIndex}' ;
 </sql:query>
-SELECT * from message_tbl where `from` = '${sessionId}' or `to` = '${sessionId}';
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -37,7 +39,7 @@ SELECT * from message_tbl where `from` = '${sessionId}' or `to` = '${sessionId}'
             <div class="col-12 text-center align-self-center py-5">
                 <div class="section pb-5 pt-5 pt-sm-2 text-center">
 
-                    <button type="button" id="messageBtn">쪽지보내기</button>
+                    <button type="button" onclick="window.location='sendmessage.jsp'">쪽지보내기</button>
                     <div class="card-3d-wrap mx-auto">
                         <div class="card-3d-wrapper">
                             <div class="card-board">
@@ -45,6 +47,8 @@ SELECT * from message_tbl where `from` = '${sessionId}' or `to` = '${sessionId}'
                                     <thead>
                                     <tr>
 
+                                        <th>구분</th>
+                                        <th>제목</th>
                                         <th>보낸사람</th>
                                         <th>받은사람</th>
                                         <th>읽음</th>
@@ -53,11 +57,18 @@ SELECT * from message_tbl where `from` = '${sessionId}' or `to` = '${sessionId}'
                                     </thead>
                                     <tbody>
                                     <c:forEach items="${message.rows}" var="values" >
-                                        <tr>
-                                            <td>${values.id}</td>
+                                        <tr onclick="window.location='message_item.jsp?item=${values.id}'">
+                                            <td><c:if test="${values.from == sessionId}" >
+                                                <b>보낸쪽지</b>
+                                            </c:if>
+                                                <c:if test="${values.from != sessionId}" >
+                                                    <p>받은쪽지</p>
+                                            </c:if></td>
+                                            <td>${values.title}</td>
                                             <td>${values.from}</td>
                                             <td>${values.to}</td>
-                                            <td><fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${values.created_date}"/></td>
+                                            <td>${values.read}</td>
+                                            <td><fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${values.send_date}"/></td>
                                         </tr>
 
                                     </c:forEach>
