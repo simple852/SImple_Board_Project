@@ -61,8 +61,8 @@
                             <div class="card-board">
                                 <form action="../process/send_process.jsp" method="get">
                                     <div id="div1">
-                                        <input type="text" name ="title" class="title"><br>
-                                        <textarea class="content" name="content"></textarea><br>
+                                        <input type="text" name ="title" class="title" placeholder="제목"><br>
+                                        <textarea class="content" name="content" placeholder="내용"></textarea><br>
                                         <input type="hidden" name = "sendId" value = ${sessionScope.get("sessionIndex")} >
 
 
