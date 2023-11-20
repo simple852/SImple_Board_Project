@@ -59,7 +59,7 @@ public class MemberJoin extends HttpServlet {
 
         try {
 
-            ps = con.prepareStatement(search);
+            ps = memberDAO.con.prepareStatement(search);
             ps.setString(1, id);
             rs = ps.executeQuery(); // 중복 확인을 위한 서치 쿼리문
 

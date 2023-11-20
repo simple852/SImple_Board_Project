@@ -41,7 +41,7 @@
     </header>
     <c:forEach items="${movieInfo.rows}" var="values" >
     <main>
-        <section class="main-image" >a</section>
+        <section class="main-image"  style="background-image: url('${values.img1}'); "  >a</section>
 
         <section class="left">
 

@@ -72,8 +72,8 @@
                                             <tr>
                                                 <th>체크</th>
 
-                                                <th>member_Name</th>
-                                                <th>member_Id</th>
+                                                <th>회원이름</th>
+                                                <th>회원아이디</th>
                                             </tr>
 
                                             <c:forEach var="row" items="${rs.rows}">

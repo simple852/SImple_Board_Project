@@ -5,7 +5,13 @@
 
 <c:set var="success" value="${param.success}" />
 
-${ success}
+<c:set var="deleteSuccess" value="${param.delete}"/>
+<c:if test="${deleteSuccess == false}">
+    <script>
+        alert(" 회원탈퇴 실패했습니다")
+    </script>
+</c:if>
+
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -63,7 +69,7 @@ ${ success}
                                 <div class="center-wrap">
                                     <div class="section text-center">
                                         <h4 class="mb-4 pb-3">Sign Up</h4>
-                                        <form  name="joinForm" id ="post2">
+                                        <form  name="joinForm" id ="post2" method="post">
                                             <div class="form-group">
                                                 <input type="text" name="joinName" class="form-style" placeholder="Your NAME" id="logname" autocomplete="off">
                                                 <i class="input-icon uil uil-user" id="name_icon"></i>
